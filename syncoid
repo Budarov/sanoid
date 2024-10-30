@@ -747,7 +747,7 @@ sub runsynccmd {
 
 	my $disp_pvsize = $pvsize == 0 ? 'UNKNOWN' : readablebytes($pvsize);
 	my $sendoptions;
-	if ($sendsource =~ / -t /) {
+	if ($sendsource =~ /^-t /) {
 		writelog('INFO', "Resuming interrupted zfs send/receive from $sourcefs to $targetfs (~ $disp_pvsize remaining):");
 		$sendoptions = getoptionsline(\@sendoptions, ('P','e','v','w'));
 	} elsif ($sendsource =~ /#/) {
